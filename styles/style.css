@@ -1,6 +1,6 @@
 body {
   margin: 0;
-
+  position: relative;
   background: url('../img/background.jpg') no-repeat;
   background-size: cover;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -24,6 +24,9 @@ body {
 }
 
 .card.turned {
+  pointer-events: none;
+}
+.card.guessed {
   pointer-events: none;
 }
 
@@ -87,4 +90,69 @@ p {
   font-weight: bolder;
   font-size: 20px;
   text-align: center;
+}
+
+/* Victory Section */
+#victory-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(97, 97, 97, 0.437);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out 0.5s;
+}
+#victory-section .win-popup {
+  width: 60vw;
+  height: 350px;
+  border-radius: 6px;
+  border: 2px solid royalblue;
+  background-color: rgba(65, 105, 225, 0.875);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+#victory-section .win-popup h3 {
+  font-size: 3rem;
+  color: #fff;
+  margin: 0;
+}
+#victory-section .win-popup p {
+  margin: 0;
+}
+#victory-section .btns button {
+  min-width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  border: 2px solid;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#victory-section .btns button:hover {
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+#victory-section .btns #play-again {
+  /* background-color: transparent; */
+  border-color: green;
+}
+#victory-section .btns #take-me-out {
+  border-color: red;
+}
+
+#victory-section .btns #play-again:hover {
+  background-color: green;
+}
+#victory-section .btns #take-me-out:hover {
+  background-color: red;
 }
